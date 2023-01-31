@@ -20,8 +20,10 @@ public class CustomerService {
         List<CustomerDTO> customers = new ArrayList<>();
 
         customerRepository.findAll().stream().forEach(item -> {
-            customers.add(item);
+            customers.add(mapCustomerDomainToDTO(item));
         });
+
+        return customers;
     }
 
 
